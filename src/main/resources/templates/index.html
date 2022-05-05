@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link href = "css/style.css" rel = "stylesheet"/>
+    <title>Spring Boot Application</title>
+    <script>
+        setInterval(function () {this.window.location.reload();}, 5000);
+    </script>
+</head>
+
+<body th:if="${status}" id="background-green">
+    <div class="child">
+        <h1>Maintenance Monitor</h1>
+        <p th:text="${message}" />
+        <p th:text="'last update: ' + ${time}" />
+    </div>
+</body>
+<body th:if="${!status}" id="background-red">
+<div class="child">
+    <h1>Maintenance Monitor</h1>
+    <p th:text="${message}" />
+    <p th:text="'last update: ' + ${time}" />
+</div>
+</body>
+
+</html>
