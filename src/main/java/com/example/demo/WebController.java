@@ -9,7 +9,7 @@ import java.time.LocalDateTime;
 @Controller
 class WebController {
 
-    String message = "";
+    String message = "default";
     boolean status = true;
 
     @RequestMapping(value = "/")
@@ -23,7 +23,7 @@ class WebController {
     @GetMapping(value = "/setMessage/{msg}")
     public @ResponseBody String setMessage(@PathVariable String msg){
         this.message = msg;
-        return "Message has been set to: " + this.message;
+        return this.message;
     }
 
     @GetMapping(value ="/getMessage")
@@ -34,12 +34,12 @@ class WebController {
     @GetMapping(value = "/reset")
     public @ResponseBody String resetMessage(){
         this.message = "";
-        return "Message has been reset.";
+        return this.message;
     }
 
     @GetMapping(value = "/status")
-    public @ResponseBody String changeStatus(){
+    public @ResponseBody boolean changeStatus(){
         this.status = !this.status;
-        return "Status has been set to: " + status;
+        return this.status;
     }
 }
